@@ -41,7 +41,7 @@ action :drop do
     converge_by "Drop PostgreSQL User #{new_resource.name}" do
       execute "drop postgresql user #{new_resource.name}" do
         user "postgres"
-        command %(psql -c 'DROP ROLE IF EXISTS \\\"#{new_resource.name}\\\"')
+        command %(psql -c 'DROP ROLE IF EXISTS \\"#{new_resource.name}\\"')
         sensitive true
       end
 
